@@ -37,9 +37,6 @@ describe('search', function() {
   });
 
   it('should invoke search when button is clicked', function() {
-    if (element.find('button')) {
-      console.log(element.find('button'));
-    }
     element.find('button').click();
     expect(youTubeSearchMock.callCount).to.equal(1);
   });
