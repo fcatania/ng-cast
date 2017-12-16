@@ -2,11 +2,9 @@ angular.module('video-player')
 
 .component('videoList', {
   bindings: {
-    videos: '<'
+    videos: '<',
+    vidClick: '<'
   },
-  controller: function() {
-    
-  }, 
   templateUrl: 'src/templates/videoList.html'
 });
 
