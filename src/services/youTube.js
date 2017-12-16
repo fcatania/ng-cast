@@ -2,7 +2,7 @@ angular.module('video-player')
 .service('youTube', function($http) {
   // $http.get()
   this.fetchYTVids = (callback, query = 'cats') => {
-    console.log('fetchWasCalled');
+
     $http({
       method: 'GET',
       url: 'https://www.googleapis.com/youtube/v3/search',
@@ -16,8 +16,6 @@ angular.module('video-player')
       },
       type: 'object'
     }).then(function(response) {
-      console.log('SUCCESS');
-      console.log(response); // response.data.items holds our vids
       callback(response.data.items);
     }, function(response) {
       console.log('FAILED');

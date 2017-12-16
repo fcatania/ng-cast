@@ -7,6 +7,10 @@ angular.module('video-player')
     this.selectVideo = (index) => { 
       this.currentVideo = this.videos[index]; 
     };
+    this.searchVideos = (query) => {
+      // console.log(query);
+      youTube.fetchYTVids(this.replaceVideos, query); 
+    };
     this.replaceVideos = (videos) => {
       this.videos = videos;
       this.currentVideo = this.videos[0];
