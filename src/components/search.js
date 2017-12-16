@@ -2,7 +2,14 @@ angular.module('video-player')
 
 .component('search', {
   bindings: {
-    searchHandler: '<'
+    service: '<',
+    result: '<'
+  },
+  controller: function() {
+    this.search = function(q) {
+      this.service.search(this.result, q);
+    };      
+    
   },
   templateUrl: 'src/templates/search.html'
 });

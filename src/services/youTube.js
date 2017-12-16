@@ -1,8 +1,6 @@
 angular.module('video-player')
 .service('youTube', function($http) {
-  // $http.get()
-  this.fetchYTVids = (callback, query = 'cats') => {
-
+  this.search = (callback, query = 'cats') => {
     $http({
       method: 'GET',
       url: 'https://www.googleapis.com/youtube/v3/search',

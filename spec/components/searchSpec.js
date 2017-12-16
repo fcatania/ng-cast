@@ -10,7 +10,7 @@ describe('search', function() {
     resultSpy = sinon.spy();
     scope = $rootScope.$new();
 
-    youTubeSearchMock = sinon.spy(function(string, callback) {
+    youTubeSearchMock = sinon.spy(function(callback, string) {
       callback(fakeVideoData);
     });
 
@@ -32,10 +32,14 @@ describe('search', function() {
   });
 
   it('should not use & function binding', function() {
+    
     expect(element.isolateScope().$ctrl.result).to.equal(resultSpy);
   });
 
   it('should invoke search when button is clicked', function() {
+    if (element.find('button')) {
+      console.log(element.find('button'));
+    }
     element.find('button').click();
     expect(youTubeSearchMock.callCount).to.equal(1);
   });

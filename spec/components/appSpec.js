@@ -12,7 +12,7 @@ describe('app', function() {
 
     // We're stubbing out the youTube search function so it doesn't
     // make an http request
-    youTube.search = function(str, callback) {
+    youTube.search = function(callback, str) {
       callback(fakeVideoData);
     };
 
@@ -29,9 +29,9 @@ describe('app', function() {
     expect(element.isolateScope().$ctrl.selectVideo).to.be.a('function');
   });
 
-  it('should have a searchResults function on the scope', function() {
-    expect(element.isolateScope().$ctrl.searchResults).to.exist;
-    expect(element.isolateScope().$ctrl.searchResults).to.be.a('function');
+  it('should have a replaceVideos function on the scope', function() {
+    expect(element.isolateScope().$ctrl.replaceVideos).to.exist;
+    expect(element.isolateScope().$ctrl.replaceVideos).to.be.a('function');
   });
 
   it('should have a currentVideo property on the scope', function() {
