@@ -1,7 +1,7 @@
 angular.module('video-player')
 .service('youTube', function($http) {
   // $http.get()
-  this.fetchYTVids = (query = 'cats') => {
+  this.fetchYTVids = (callback, query = 'cats') => {
     console.log('fetchWasCalled');
     $http({
       method: 'GET',
@@ -18,6 +18,7 @@ angular.module('video-player')
     }).then(function(response) {
       console.log('SUCCESS');
       console.log(response); // response.data.items holds our vids
+      callback(response.data.items);
     }, function(response) {
       console.log('FAILED');
     });

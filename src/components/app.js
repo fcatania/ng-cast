@@ -7,7 +7,11 @@ angular.module('video-player')
     this.selectVideo = (index) => { 
       this.currentVideo = this.videos[index]; 
     };
-    youTube.fetchYTVids();
+    this.replaceVideos = (videos) => {
+      this.videos = videos;
+      this.currentVideo = this.videos[0];
+    };
+    youTube.fetchYTVids(this.replaceVideos);
   },
   templateUrl: 'src/templates/app.html'
 });
