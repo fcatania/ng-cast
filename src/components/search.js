@@ -5,8 +5,9 @@ angular.module('video-player')
     result: '<'
   },
   controller: function(youTube) {
+    this.service = youTube;
     this.search = function(query) {
-      youTube.search(this.result, query);
+      this.service.search(this.result, query);
     };      
     this.keyupHandler = function(keyCode, query) {
       if (keyCode === 13) {
